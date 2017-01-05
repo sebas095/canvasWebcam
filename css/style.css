@@ -31,13 +31,15 @@ body {
   position: absolute;
   top: 1em;
   right: 1em;
-  color: white;
+  color: black;
   font-size: 30px;
+  display: none;
 }
 
 #actions a {
   margin-right: 1em;
   text-decoration: none;
+  cursor: pointer;
 }
 
 #actions img {

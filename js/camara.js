@@ -38,4 +38,12 @@ class Camara {
   draw() {
     this.context.drawImage(this.video, 0, 0);
   }
+
+  snap() {
+    this.video.pause();
+  }
+
+  unSnap() {
+    this.video.play();
+  }
 }
