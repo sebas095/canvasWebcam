@@ -48,6 +48,7 @@ class Camara {
 
   unSnap() {
     this.video.play();
+    this.sticker = null;
   }
 
   addSticker(img) {
