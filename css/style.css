@@ -1,0 +1,24 @@
+body {
+  text-align: center;
+}
+
+#video {
+  display: none;
+}
+
+#camara {
+  display: inline-block;
+  position: relative;
+}
+
+#snap {
+  border-radius: 50%;
+  background-color: rgba(200, 200, 200, 0.6);
+  border: solid 5px #fff;
+  position: absolute;
+  bottom: 2.5em;
+  width: 100px;
+  height: 100px;
+  left: calc(50% - 50px);
+  cursor: pointer;
+}
