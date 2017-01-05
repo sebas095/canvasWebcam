@@ -26,7 +26,16 @@ class Camara {
   }
 
   setCanvas() {
+    this.video.addEventListener('play', (ev) => this.loop());
+  }
+
+  loop() {
+    if (this.video.paused || this.video.ended) return;
+    this.draw();
+    requestAnimationFrame(() => this.loop());
+  }
+
+  draw() {
     this.context.drawImage(this.video, 0, 0);
-    requestAnimationFrame(() => this.setCanvas());
   }
 }
