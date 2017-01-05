@@ -26,3 +26,20 @@ body {
 #download-link {
   display: none;
 }
+
+#actions {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  color: white;
+  font-size: 30px;
+}
+
+#actions a {
+  margin-right: 1em;
+  text-decoration: none;
+}
+
+#actions img {
+  width: 30px;
+}
