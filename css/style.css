@@ -22,3 +22,7 @@ body {
   left: calc(50% - 50px);
   cursor: pointer;
 }
+
+#download-link {
+  display: none;
+}
