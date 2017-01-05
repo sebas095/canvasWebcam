@@ -45,3 +45,21 @@ body {
 #actions img {
   width: 30px;
 }
+
+#stickers {
+  height: calc(100% - 120px);
+  width: 100%;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: center;
+  padding-top: 100px;
+  display: none;
+}
+
+.sticker {
+  display: inline-block;
+  width: 19%;
+  margin-top: 30px;
+}

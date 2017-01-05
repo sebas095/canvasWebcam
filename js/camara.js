@@ -5,6 +5,7 @@ class Camara {
       this.video = document.getElementById(video_id);
       this.canvas = document.getElementById(canvas_id);
       this.context = this.canvas.getContext('2d');
+      this.sticker = null;
 
       navigator.webkitGetUserMedia({video: true}, localMediaStream => {
         this.setVideo(localMediaStream);
@@ -37,6 +38,8 @@ class Camara {
 
   draw() {
     this.context.drawImage(this.video, 0, 0);
+    if (this.sticker !== null)
+      this.context.drawImage(this.sticker, 20, 20, 90, 90);
   }
 
   snap() {
@@ -45,5 +48,10 @@ class Camara {
 
   unSnap() {
     this.video.play();
+  }
+
+  addSticker(img) {
+    this.sticker = img;
+    this.draw();
   }
 }
