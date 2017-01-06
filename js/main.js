@@ -4,6 +4,17 @@
     const downloadBtn = document.getElementById('download');
     const cancelBtn = document.getElementById('cancel');
     const stickers = document.getElementById('sticker');
+    const select = document.getElementById('options');
+    const acceptBtn = document.getElementById('accept');
+
+    camara.getCamaras((cams) => {
+      cams.forEach((item) => {
+        const opt = document.createElement('option');
+        opt.value = item.deviceId;
+        opt.innerHTML = item.label;
+        select.appendChild(opt);
+      });
+    });
 
     document.querySelectorAll('.sticker').forEach((item) => {
       item.addEventListener('click', addSticker);
@@ -34,6 +45,13 @@
     stickers.addEventListener('click', (ev) => {
       ev.preventDefault();
       document.getElementById('stickers').style.display = 'block';
+    });
+
+    acceptBtn.addEventListener('click', (ev) => {
+      const deviceId = select.options[select.selectedIndex].value;
+      camara.setCamara(deviceId);
+      document.getElementById('intro').style.display = 'none';
+      document.getElementById('camara').style.display = 'inline-block';
     });
 
     function addSticker() {

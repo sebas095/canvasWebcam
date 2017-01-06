@@ -6,8 +6,10 @@ class Camara {
       this.canvas = document.getElementById(canvas_id);
       this.context = this.canvas.getContext('2d');
       this.sticker = null;
+      this.camaras = [];
+      this.deviceId = null;
 
-      navigator.webkitGetUserMedia({video: true}, localMediaStream => {
+      navigator.webkitGetUserMedia(this.constraints(), localMediaStream => {
         this.setVideo(localMediaStream);
         this.setCanvas();
         callback();
@@ -54,5 +56,36 @@ class Camara {
   addSticker(img) {
     this.sticker = img;
     this.draw();
+  }
+
+  constraints() {
+    if (this.deviceId === null) {
+      return {video: true};
+    } else {
+      return {
+        video: {
+          optional: [
+            {
+              sourceId: this.deviceId
+            }
+          ]
+        }
+      };
+    }
+  }
+
+  getCamaras(callback) {
+    navigator.mediaDevices.enumerateDevices().then((devices) => {
+      devices.forEach((device) => {
+        if (device.kind === 'videoinput') {
+          this.camaras.push(device);
+        }
+      });
+      return callback(this.camaras);
+    });
+  }
+
+  setCamara(deviceId) {
+    this.deviceId = deviceId;
   }
 }
