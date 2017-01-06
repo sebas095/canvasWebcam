@@ -16,7 +16,6 @@ class Camara {
       }, (err) => {
         console.log(err);
       });
-
     }
   }
 
